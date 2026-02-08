@@ -20,30 +20,54 @@ CLIENT_SECRET_FILE = 'client_secret.json'
 def authenticate_google_user():
     """
     Google OAuth 2.0 인증을 수행하고 creds 객체를 반환합니다.
-    token.pickle 파일이 있으면 로드하고, 없거나 유효하지 않으면 새로 인증합니다.
+    1. token.pickle 파일이 있으면 로드 (Local)
+    2. Streamlit Cloud Secrets에 설정된 토큰 정보가 있으면 로드 (Cloud)
+    3. 둘 다 없으면 새로운 인증 절차 시작 (Local Browser)
     """
     creds = None
     
-    # 토큰 파일이 존재하면 로드
+    # 1. 로컬 토큰 파일 확인
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE, 'rb') as token:
             creds = pickle.load(token)
             
-    # 유효한 자격 증명이 없으면 로그인 진행
+    # 2. Streamlit Secrets 확인 (Cloud 환경)
+    import streamlit as st
+    if not creds and "google_oauth" in st.secrets:
+        try:
+            from google.oauth2.credentials import Credentials
+            secret_info = st.secrets["google_oauth"]
+            creds = Credentials(
+                token=None,
+                refresh_token=secret_info["refresh_token"],
+                token_uri=secret_info["token_uri"],
+                client_id=secret_info["client_id"],
+                client_secret=secret_info["client_secret"],
+                scopes=SCOPES
+            )
+        except Exception as e:
+            st.error(f"Secrets 로드 중 오류: {e}")
+
+    # 3. 유효한 자격 증명이 없으면 로그인 진행 (Local only)
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         else:
+            # Secrets가 있어도 Refresh 실패 시 재인증 시도 (하지만 Cloud에선 불가)
             if not os.path.exists(CLIENT_SECRET_FILE):
-                raise FileNotFoundError(f"'{CLIENT_SECRET_FILE}' 파일을 찾을 수 없습니다. Google Cloud 콘솔에서 다운로드해주세요.")
+                # Cloud 환경에서 Secrets도 없고 파일도 없으면 에러
+                if "google_oauth" not in st.secrets: # 중복 체크
+                     st.error("Google 인증 정보를 찾을 수 없습니다. (Local: client_secret.json, Cloud: Secrets)")
+                     return None
                 
-            flow = InstalledAppFlow.from_client_secrets_file(
-                CLIENT_SECRET_FILE, SCOPES)
-            creds = flow.run_local_server(port=0)
-            
-        # 인증 성공 시 토큰 저장
-        with open(TOKEN_FILE, 'wb') as token:
-            pickle.dump(creds, token)
+            if os.path.exists(CLIENT_SECRET_FILE):
+                flow = InstalledAppFlow.from_client_secrets_file(
+                    CLIENT_SECRET_FILE, SCOPES)
+                creds = flow.run_local_server(port=0)
+                
+                # 인증 성공 시 토큰 저장 (Local only)
+                with open(TOKEN_FILE, 'wb') as token:
+                    pickle.dump(creds, token)
             
     return creds
 
