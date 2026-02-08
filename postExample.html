@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+    /* 블로그 전체 스타일 */
+    .blog-body { font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif; line-height: 1.8; color: #333; font-size: 16px; word-break: keep-all; }
+    
+    /* 헤더 스타일 */
+    .warning-header { background-color: #fff5f5; border: 2px solid #e74c3c; padding: 20px; border-radius: 10px; margin-bottom: 40px; text-align: center; }
+    .warning-title { color: #c0392b; font-weight: 900; font-size: 1.4em; margin-bottom: 15px; }
+    .warning-text { font-size: 1.1em; font-weight: bold; color: #333; line-height: 1.6; }
+    
+    /* 섹션 제목 스타일 */
+    h3.section-title { 
+        color: #2c3e50; 
+        border-bottom: 2px solid #2c3e50; 
+        padding-bottom: 10px; 
+        margin-top: 60px; 
+        font-size: 22px; 
+        font-weight: 800;
+    }
+    h4.sub-title {
+        color: #0056b3;
+        margin-top: 35px;
+        margin-bottom: 15px;
+        font-size: 19px;
+        font-weight: 700;
+    }
+
+    /* 박스 스타일 */
+    .info-box { 
+        background-color: #f0f7ff; 
+        border: 1px solid #cce5ff; 
+        padding: 20px; 
+        border-radius: 8px; 
+        margin: 25px 0; 
+    }
+    .fact-box {
+        background-color: #fff0f0; 
+        border: 1px solid #ffc9c9; 
+        padding: 20px; 
+        border-radius: 8px; 
+        margin: 25px 0; 
+    }
+    .solution-box {
+        background-color: #e8f4fd;
+        border: 1px solid #b6d4fe;
+        padding: 20px;
+        border-radius: 8px;
+        margin: 25px 0;
+    }
+
+    /* 텍스트 강조 */
+    .red-text { color: #e74c3c; font-weight: bold; }
+    .blue-text { color: #0056b3; font-weight: bold; }
+    .bold-text { font-weight: 700; }
+
+    /* 리스트 스타일 수정: 이모지 깨짐 방지 및 여백 확보 */
+    ul.check-list { list-style: none; padding-left: 0; }
+    ul.check-list li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    /* ❌ 이모지를 유니코드로 변경 */
+    ul.check-list li::before { content: "\274C"; position: absolute; left: 0; top: 2px; font-size: 14px; }
+    
+    ul.ok-list { list-style: none; padding-left: 0; }
+    ul.ok-list li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    /* ✅ 이모지를 유니코드로 변경 */
+    ul.ok-list li::before { content: "\2705"; position: absolute; left: 0; top: 2px; font-size: 14px; }
+
+    ul.custom-list { list-style: disc; padding-left: 20px; }
+
+    /* 구분선 */
+    hr { border: 0; border-top: 1px solid #ddd; margin: 50px 0; }
+    
+    /* 출처 표기 */
+    .source-ref { font-size: 13px; color: #888; margin-top: 50px; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="blog-body">
+
+    <div class="warning-header">
+        <div class="warning-title">🚨 암 치료비, 현실은 이렇습니다</div>
+        <div class="warning-text">
+            "다빈치 로봇 암 수술비: 약 1,500만 원"<br>
+            "표적 항암 치료비 (1회): 약 300~600만 원"<br>
+            "중입자 가속기 치료: 약 5,000만 원"<br>
+            <span style="font-size:0.8em; font-weight:normal;">(※ 비급여 적용 시 예시 비용)</span>
+        </div>
+    </div>
+
+    <p>안녕하세요. 현명한 보험 소비를 돕는 여러분의 진짜보험가이드 BEN 입니다.</p>
+    <p>많은 분이 <strong>"암 보험은 진단비 1억 원만 있으면 끝"</strong>이라고 생각합니다. 하지만 위의 비용을 보시면 생각이 달라지실 겁니다. 의료 기술이 발전하여 생존율은 높아졌지만, 그만큼 <strong>'돈'</strong>이 생존을 결정하는 시대가 되었기 때문입니다.</p>
+    <p>오늘은 우리가 믿고 있던 <strong>국민건강보험과 실비보험의 치명적인 한계</strong>를 짚어보고, 왜 <strong>'암 치료비 보험'</strong>을 별도로 준비해야 하는지, 그리고 수많은 치료비 보험 중 <strong>나에게 맞는 최적의 선택</strong>은 무엇인지 약관을 근거로 총정리해 드리겠습니다.</p>
+  
+  <div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3UNXyuIaBxNX-B7bo9fUyZlE7BKrtBM2722q-vTUT8qldwe5i4-nTPvUZ3JDhDJoXSELCwsp_fw8Ab1y89j1m8RmYzwg43h_WmWtjP4alxm7xG4CNOm15Y7ZehRqJGqpY2IBPRYHJREXSLL4PkWlSKboZm6riP2k3kO1vxBCXCD4Dc9luzJAkGx7K3fc/s2752/Gemini_Generated_Image_dpcr1mdpcr1mdpcr.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="400" data-original-height="1536" data-original-width="2752" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3UNXyuIaBxNX-B7bo9fUyZlE7BKrtBM2722q-vTUT8qldwe5i4-nTPvUZ3JDhDJoXSELCwsp_fw8Ab1y89j1m8RmYzwg43h_WmWtjP4alxm7xG4CNOm15Y7ZehRqJGqpY2IBPRYHJREXSLL4PkWlSKboZm6riP2k3kO1vxBCXCD4Dc9luzJAkGx7K3fc/s400/Gemini_Generated_Image_dpcr1mdpcr1mdpcr.png"/><p class="image-caption">암진단비와,암치료비, 목적이 다릅니다. </p></a></div>
+
+    <br>
+
+    <h3 class="section-title">1. 믿었던 도끼에 발등? 산정특례와 실비의 '구멍'</h3>
+
+    <p>"암에 걸리면 나라에서 병원비 95% 지원해 준다던데?"<br>
+    "실비 보험이 있어서 병원비 다 돌려받지 않나요?"</p>
+    <p>상담 현장에서 가장 많이 듣는 이야기입니다. 결론부터 말씀드리면 <strong>반은 맞고 반은 틀렸습니다.</strong></p>
+
+    <h4 class="sub-title">① 산정특례의 진실: "비급여는 0원 지원"</h4>
+    <p>암 환자로 등록되면 '본인일부부담금 산정특례' 제도를 통해 5년간 병원비의 5%만 부담하면 됩니다. 하지만 약관과 법령을 자세히 들여다보면 중요한 단서가 있습니다.</p>
+    <div class="fact-box">
+        <strong>⚠️ 산정특례 적용 대상 (약관 제4조 및 관련 법령 참조)</strong><br><br>
+        국민건강보험법에서 정한 <span class="red-text">‘요양급여(급여)’ 항목에 대해서만</span> 본인부담금을 경감해 줍니다 [1].<br>
+        즉, 건강보험이 적용되지 않는 <strong>‘비급여’ 치료비는 산정특례 혜택이 없으며 환자가 전액(100%) 부담</strong>해야 합니다 [2].
+    </div>
+    <p>문제는 효과가 좋고 부작용이 적은 최신 치료(표적항암제, 로봇수술 등)는 대부분 <strong>초기에 비급여</strong>로 분류된다는 점입니다. 이 비용은 오롯이 환자의 몫입니다.</p>
+
+    <h4 class="sub-title">② 실비보험의 빈틈: "통원 한도 초과"</h4>
+    <p>과거에는 암 치료를 위해 장기간 입원했지만, 요즘은 기술의 발달로 수술 후 며칠 만에 퇴원하거나, 아예 <strong>통원하며 항암 주사</strong>를 맞는 경우가 대부분입니다.</p>
+    <ul>
+        <li><strong>현실:</strong> 고가 항암제 1회 투여 비용 약 300~500만 원 (통원 치료)</li>
+        <li><strong>실비 보장:</strong> 대부분 <strong>통원 1일당 20~25만 원 한도</strong></li>
+    </ul>
+    <p>실비만 믿고 있다가는 1회 치료받을 때마다 수백만 원의 자기부담금이 발생할 수 있습니다. 이것이 암 치료비 보험이 별도로 필요한 이유입니다.</p>
+<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4tOBrGEpwwkwKlMsIHCGUf7wai0GY59gnnYoCzXLhqzGcfr4EIJLqUE0iMgsAM1h3suXt8y61UenlzPxUXEb88r3yyQPD1otRhUvzJNy9TlevcnlffV7ygLXbQhjzky-q7trbsnycj8pF3LFzuHeHLAO1_xnGOMeXfnmc6DShiDtLq-roKnEsKdRVRXM/s1010/ScreenShot%20Tool%20-20260119131455.png" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" width="400" data-original-height="812" data-original-width="1010" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4tOBrGEpwwkwKlMsIHCGUf7wai0GY59gnnYoCzXLhqzGcfr4EIJLqUE0iMgsAM1h3suXt8y61UenlzPxUXEb88r3yyQPD1otRhUvzJNy9TlevcnlffV7ygLXbQhjzky-q7trbsnycj8pF3LFzuHeHLAO1_xnGOMeXfnmc6DShiDtLq-roKnEsKdRVRXM/s400/ScreenShot%20Tool%20-20260119131455.png"/><p class="image-caption">암치료, 진단비, 건강보험,실비보험 만으로는 부족합니다. </p></a></div>
+   
+
+    <br>
+
+    <h3 class="section-title">2. 암 치료비 보험, 종류가 너무 많죠? 3가지로 정리합니다</h3>
+
+    <p>보험사마다 이름은 복잡하지만, 약관을 분석해보면 암 치료비 보험은 크게 <strong>세 가지 유형</strong>으로 나뉩니다. 각 유형의 특징을 알면 나에게 필요한 보장이 보입니다.</p>
+
+    <div class="info-box">
+        <h4 style="margin-top:0;">🛡️ TYPE A. 10년 확정 지급형 (베이스 캠프)</h4>
+        <p>암 진단 후 <strong>10년 동안</strong>, 수술이나 항암치료 등을 받을 때마다 <strong>매년 정해진 금액</strong>을 연금처럼 지급합니다.</p>
+        <ul class="custom-list">
+            <li><strong>특징:</strong> 암 치료의 골든타임인 10년 동안 재발하거나 전이되어도 계속 보장합니다 [3].</li>
+            <li><strong>약관 예시:</strong> 암주요치료비(연간1회한)(10년지급대상) [3].</li>
+            <li><strong>추천:</strong> 장기적인 치료비 파이프라인을 구축하고 싶은 분.</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4 style="margin-top:0;">🛡️ TYPE B. 비급여 집중 보장형 (방패)</h4>
+        <p>건강보험 혜택이 안 되는 <strong>'비급여' 치료</strong>를 받았을 때, 사용한 금액에 비례하거나 정액으로 집중 보장합니다.</p>
+        <ul class="custom-list">
+            <li><strong>특징:</strong> 다빈치 로봇수술, 표적항암제 등 내 돈이 많이 들어가는 비급여 항목을 전문적으로 방어합니다 [2].</li>
+            <li><strong>약관 예시:</strong> 비급여암주요치료비(전액본인부담포함) [4], [5].</li>
+            <li><strong>추천:</strong> 산정특례가 안 되는 고가 치료비가 두려운 분.</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h4 style="margin-top:0;">🛡️ TYPE C. 1회성 고액 진단비형 (한 방 해결)</h4>
+        <p>비용 부담이 가장 큰 특정 최신 치료를 받았을 때, <strong>1회성으로 큰 목돈</strong>을 지급합니다.</p>
+        <ul class="custom-list">
+            <li><strong>특징:</strong> 중입자 치료, 로봇 수술 등 수천만 원이 드는 치료 시 목돈을 지원합니다 [6], [7].</li>
+            <li><strong>약관 예시:</strong> 다빈치로봇암수술비 [6], 항암양성자방사선치료비 [5].</li>
+            <li><strong>추천:</strong> 최신 의료 기술 사용 시 비용 부담을 없애고 싶은 분.</li>
+        </ul>
+    </div> <br>
+
+    <h3 class="section-title">3. [결론] "뭐라도 준비해야 합니다" (추천 설계 전략)</h3>
+
+    <p>모든 보장을 다 넣으면 좋겠지만 보험료가 부담됩니다. 가장 효율적인 <strong>'가성비 전략'</strong>을 제안합니다.</p>
+
+    <h4 class="sub-title">✅ 1단계: 암 진단비는 '생활비'로 확보하세요</h4>
+    <p>암 진단비(약 3천~5천만 원)는 치료 기간 동안 끊기는 소득을 대체하는 <strong>생활비</strong> 목적입니다. 이 돈을 병원비로 다 써버리면 생계가 위협받습니다.</p>
+
+    <h4 class="sub-title">✅ 2단계: '10년 지급형'으로 기본 병원비 방어</h4>
+    <p>저는 <strong>'진단 후 10년 지급형(Type A)'</strong>을 강력하게 추천합니다. 이유는 두 가지입니다.</p>
+    <ul>
+        <li><strong>가성비:</strong> 평생 보장(종신)보다 보험료가 훨씬 저렴하면서, 치료비가 집중되는 시기를 완벽하게 커버합니다.</li>
+        <li><strong>미래 대비:</strong> 10년 뒤에는요? 최근 보험 시장은 암 치료 이력이 있어도 가입 가능한 상품이 많습니다. 10년 뒤에는 그때의 상황에 맞는 보험을 다시 준비하면 됩니다.</li>
+    </ul>
+
+    <h4 class="sub-title">✅ 3단계: '비급여 치료비' 추가 (여유가 된다면)</h4>
+    <p>실비 보험만으로는 해결되지 않는 비급여 폭탄을 막기 위해 <strong>비급여 암 주요 치료비(Type B)</strong>나 <strong>표적항암약물허가치료비(Type C)</strong> 등을 갱신형으로 저렴하게 추가하여 '이중 방어막'을 만드세요 [5], [7].</p>
+
+    <br>
+    <hr>
+
+    <h3 class="section-title">💡 요약 및 마무리</h3>
+    
+    <div class="solution-box">
+        <p class="bold-text" style="margin-bottom: 15px;">"암은 이제 죽는 병이 아니라, 돈이 많이 드는 병입니다."</p>
+        <ul class="ok-list">
+            <li><strong>국가 지원(산정특례)</strong>은 급여 항목만 지원합니다.</li>
+            <li><strong>실비 보험</strong>은 통원 한도 때문에 고가 항암 치료 시 부족할 수 있습니다.</li>
+            <li><strong>암 진단비</strong>는 생활비로 지키고, <strong>암 치료비 보험</strong>으로 병원비를 해결하세요.</li>
+        </ul>
+    </div>
+
+    <p>가장 좋은 보험은 '비싼 보험'이 아니라, 내가 아플 때 <strong>'실제로 돈이 나오는 보험'</strong>입니다.<br>
+    나에게 맞는 치료비 보험을 하나라도 꼭 준비하셔서, 만약의 상황에도 경제적 걱정 없이 오직 <strong>회복</strong>에만 집중하시길 바랍니다.</p>
+
+  <div style="background-color: #f9f9f9; border: 1px solid #eeeeee; border-radius: 10px; padding: 25px; margin: 40px 0 20px 0; font-family: 'Noto Sans KR', sans-serif;">
+    <p style="margin: 0; color: #333333; font-size: 15px; line-height: 1.7; word-break: keep-all;">
+        <b>※ 본 글은 일반적인 보험 상식과 참고용 약관 내용을 바탕으로 작성된 정보성 게시물입니다.</b> 보험설계사 개인의 주관적인 의견이 포함되어 있으며, 실제 보장 내용 및 지급 조건은 개별 상품의 약관에 따라 다를 수 있으므로 가입 전 반드시 본인의 상품 약관을 확인하시기 바랍니다.
+    </p>
+</div>
+
+</div>
+
+</body>
+</html>
